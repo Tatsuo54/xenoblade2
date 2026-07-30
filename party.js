@@ -387,14 +387,14 @@
           .map((el) => `<span class="badge" style="background:${ELEMENT_COLOR[el] || "var(--accent)"}">${el}</span>`)
           .join(" ");
         const reactionCells = REACTIONS.map(
-          (r) => `<td class="reaction-cell">${reactionDot(blade[r.key])}</td>`
+          (r) => `<td class="reaction-cell" data-label="${r.label}">${reactionDot(blade[r.key])}</td>`
         ).join("");
         return `
           <tr>
-            <td class="blade-name">${driver.name}</td>
-            <td>${blade.name}</td>
-            <td>${elementBadges}</td>
-            <td><span class="badge role">${blade.role}</span></td>
+            <td class="blade-name" data-label="ドライバー">${driver.name}</td>
+            <td data-label="ブレイド">${blade.name}</td>
+            <td data-label="属性">${elementBadges}</td>
+            <td data-label="ロール"><span class="badge role">${blade.role}</span></td>
             ${reactionCells}
           </tr>
         `;

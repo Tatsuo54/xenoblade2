@@ -158,11 +158,13 @@ input[type="search"] {
 .chip {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
   gap: 5px;
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 4px 10px;
   font-size: 0.82rem;
+  white-space: nowrap;
   cursor: pointer;
   color: var(--text-muted);
 }
@@ -300,7 +302,80 @@ input[type="search"] {
     align-items: stretch;
   }
   .filter-group {
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .filter-group label,
+  .filter-label {
+    flex: 0 0 100%;
+  }
+
+  /* テーブルをカード型リストに切り替え、横スクロールをなくす */
+  .table-wrap,
+  .roster-wrap {
+    overflow-x: visible;
+  }
+
+  .blade-table thead {
+    display: none;
+  }
+
+  .blade-table,
+  .blade-table tbody,
+  .blade-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .blade-table tr {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    margin: 10px;
+  }
+
+  .blade-table tr:first-child {
+    margin-top: 0;
+  }
+
+  .blade-table tbody tr:hover {
+    background: var(--surface);
+  }
+
+  .blade-table td {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: none;
+    white-space: normal;
+  }
+
+  .blade-table td::before {
+    content: attr(data-label);
+    flex: 0 0 64px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .blade-table td.blade-name {
+    font-size: 1rem;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .blade-table td.reaction-cell {
+    justify-content: flex-start;
+  }
+
+  .empty-row td {
+    display: block;
+  }
+
+  .empty-row td::before {
+    content: none;
   }
 }
 

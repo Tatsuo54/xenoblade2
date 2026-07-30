@@ -134,14 +134,14 @@
           })
           .join(" ");
         const reactionCells = REACTIONS.map(
-          (r) => `<td class="reaction-cell">${reactionDot(blade[r.key])}</td>`
+          (r) => `<td class="reaction-cell" data-label="${r.label}">${reactionDot(blade[r.key])}</td>`
         ).join("");
         return `
           <tr>
-            <td class="blade-name">${blade.name}</td>
-            <td>${elementBadges}</td>
-            <td><span class="badge role">${blade.role}</span></td>
-            <td>${blade.weapon}</td>
+            <td class="blade-name" data-label="ブレイド">${blade.name}</td>
+            <td data-label="属性">${elementBadges}</td>
+            <td data-label="ロール"><span class="badge role">${blade.role}</span></td>
+            <td data-label="武器種">${blade.weapon}</td>
             ${reactionCells}
           </tr>
         `;
