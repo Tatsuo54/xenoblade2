@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ゼノブレイド2 ブレイド管理</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>ゼノブレイド2</h1>
+    <nav class="view-tabs" id="viewTabs" aria-label="表示切替">
+      <button type="button" class="view-tab active" data-view="reference">早見表</button>
+      <button type="button" class="view-tab" data-view="party">パーティ編成</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-reference" class="view">
+      <nav class="driver-tabs" id="driverTabs" aria-label="ドライバー選択"></nav>
+
+      <section class="filter-bar" aria-label="絞り込み">
+        <div class="filter-group">
+          <label for="elementFilter">属性</label>
+          <select id="elementFilter">
+            <option value="">すべて</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="roleFilter">ロール</label>
+          <select id="roleFilter">
+            <option value="">すべて</option>
+          </select>
+        </div>
+        <div class="filter-group reaction-filter">
+          <span class="filter-label">リアクション</span>
+          <label class="chip"><input type="checkbox" data-reaction="break" /> ブレイク</label>
+          <label class="chip"><input type="checkbox" data-reaction="down" /> ダウン</label>
+          <label class="chip"><input type="checkbox" data-reaction="smash" /> スマッシュ</label>
+          <label class="chip"><input type="checkbox" data-reaction="rising" /> ライジング</label>
+        </div>
+        <div class="filter-group">
+          <label for="searchInput">ブレイド名</label>
+          <input type="search" id="searchInput" placeholder="名前で検索" />
+        </div>
+      </section>
+
+      <p class="result-count" id="resultCount"></p>
+
+      <section class="table-wrap">
+        <table class="blade-table" id="bladeTable">
+          <thead>
+            <tr>
+              <th>ブレイド</th>
+              <th>属性</th>
+              <th>ロール</th>
+              <th>武器種</th>
+              <th>ブレイク</th>
+              <th>ダウン</th>
+              <th>スマッシュ</th>
+              <th>ライジング</th>
+            </tr>
+          </thead>
+          <tbody id="bladeTableBody"></tbody>
+        </table>
+      </section>
+    </section>
+
+    <section id="view-party" class="view" hidden>
+      <section class="party-slots" id="partySlots"></section>
+
+      <section class="summary-panel" id="summaryPanel">
+        <h2>パーティサマリー</h2>
+
+        <div class="summary-row">
+          <span class="summary-label">属性</span>
+          <div class="summary-tags" id="elementSummary"></div>
+        </div>
+
+        <div class="summary-row">
+          <span class="summary-label">リアクション</span>
+          <div class="reaction-summary" id="reactionSummary"></div>
+        </div>
+      </section>
+
+      <section class="roster-wrap">
+        <h2>編成ロースター</h2>
+        <table class="blade-table" id="rosterTable">
+          <thead>
+            <tr>
+              <th>ドライバー</th>
+              <th>ブレイド</th>
+              <th>属性</th>
+              <th>ロール</th>
+              <th>ブレイク</th>
+              <th>ダウン</th>
+              <th>スマッシュ</th>
+              <th>ライジング</th>
+            </tr>
+          </thead>
+          <tbody id="rosterTableBody"></tbody>
+        </table>
+      </section>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p><a href="https://cloudavenue.jp/" target="_blank" rel="noopener">cloudavenue.jp</a></p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="party.js"></script>
+  <script src="tabs.js"></script>
+</body>
+</html>
