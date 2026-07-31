@@ -17,8 +17,8 @@
   const REACTIONS = [
     { key: "break", label: "ブレイク" },
     { key: "down", label: "ダウン" },
-    { key: "smash", label: "スマッシュ" },
     { key: "rising", label: "ライジング" },
+    { key: "smash", label: "スマッシュ" },
   ];
 
   // Tokens that can never coexist, regardless of slot.
