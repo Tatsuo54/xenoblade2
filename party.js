@@ -269,7 +269,7 @@
 
       const titleEl = document.createElement("p");
       titleEl.className = "slot-title";
-      titleEl.textContent = `スロット ${slotIndex + 1}`;
+      titleEl.textContent = `ドライバー ${slotIndex + 1}`;
       card.appendChild(titleEl);
 
       const header = document.createElement("div");
