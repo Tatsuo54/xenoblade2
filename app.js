@@ -12,6 +12,8 @@
     "闇": "var(--el-dark)",
   };
 
+  const ELEMENT_ORDER = ["火", "水", "風", "氷", "地", "雷", "光", "闇"];
+
   const REACTIONS = [
     { key: "break", label: "ブレイク" },
     { key: "down", label: "ダウン" },
@@ -68,6 +70,11 @@
         }
       })
     );
+    if (field === "element") {
+      return Array.from(values).sort(
+        (a, b) => ELEMENT_ORDER.indexOf(a) - ELEMENT_ORDER.indexOf(b)
+      );
+    }
     return Array.from(values).sort();
   }
 
